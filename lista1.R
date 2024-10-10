@@ -1,6 +1,4 @@
 #Resolução da Lista 1 - MCCD
-#Maíra Amaral - 2023031804
-
 # Questão 1
 #a) vetor com a sequência de valores (-3, -2, -1, 0, 1, 2, 3)
 vetorA <- c(-3:3)
