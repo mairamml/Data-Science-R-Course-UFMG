@@ -1,4 +1,5 @@
 #Resolução da Lista 1 - MCCD
+
 # Questão 1
 #a) vetor com a sequência de valores (-3, -2, -1, 0, 1, 2, 3)
 vetorA <- c(-3:3)
@@ -46,8 +47,8 @@ df3 <- data.frame(
 )
 
 # Questão 4
-# a)
 q4 <- 1:100
+# a)
 q4a <- 1/q4a
 print(sum(q4a))
 
@@ -58,3 +59,26 @@ print(sum(q4b))
 # c)
 q4c <- (-1)^(q4 + 1) / q4
 print(sum(q4c))
+
+# Questão 5
+data("ChickWeight")
+
+dieta2 <- subset(ChickWeight, Diet == 2, select = c(weight, Time))
+
+dieta_e_tempo2 <- subset(ChickWeight, Diet == 2 & Time == 2, select = c(weight, Time))
+
+media <- mean(dieta_e_tempo2$weight)
+print(media)
+
+# DESAFIO -> FAZER A QUESTÃO ACIMA COM TIDYVERSE
+library(tidyverse)
+
+dieta_tempo_tidy <- ChickWeight |> 
+  filter(Diet == 2, Time == 2) |>
+  select(c(weight, Time))
+
+media_tidy <- dieta_tempo_tidy |>
+  summarise(
+    media_pesos = mean(weight)
+  )
+print(media_tidy)
